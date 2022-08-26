@@ -32,7 +32,8 @@
     "@types/jest": "^27.0.3",
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
-    "puppeteer": "^10.0.0"
+    "puppeteer": "^10.0.0",
+    "stencil-css-in-js": "^1.0.0-beta.0"
   },
   "license": "MIT"
 }

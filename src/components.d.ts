@@ -6,6 +6,15 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AnalogClock {
+    }
+    interface ClockHand {
+        "seconds": number;
+        "time": Date;
+        "type": string;
+    }
+    interface FirstComponent {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -22,6 +31,24 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLAnalogClockElement extends Components.AnalogClock, HTMLStencilElement {
+    }
+    var HTMLAnalogClockElement: {
+        prototype: HTMLAnalogClockElement;
+        new (): HTMLAnalogClockElement;
+    };
+    interface HTMLClockHandElement extends Components.ClockHand, HTMLStencilElement {
+    }
+    var HTMLClockHandElement: {
+        prototype: HTMLClockHandElement;
+        new (): HTMLClockHandElement;
+    };
+    interface HTMLFirstComponentElement extends Components.FirstComponent, HTMLStencilElement {
+    }
+    var HTMLFirstComponentElement: {
+        prototype: HTMLFirstComponentElement;
+        new (): HTMLFirstComponentElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -29,10 +56,22 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "analog-clock": HTMLAnalogClockElement;
+        "clock-hand": HTMLClockHandElement;
+        "first-component": HTMLFirstComponentElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface AnalogClock {
+    }
+    interface ClockHand {
+        "seconds"?: number;
+        "time"?: Date;
+        "type"?: string;
+    }
+    interface FirstComponent {
+    }
     interface MyComponent {
         /**
           * The first name
@@ -48,6 +87,9 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "analog-clock": AnalogClock;
+        "clock-hand": ClockHand;
+        "first-component": FirstComponent;
         "my-component": MyComponent;
     }
 }
@@ -55,6 +97,9 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "analog-clock": LocalJSX.AnalogClock & JSXBase.HTMLAttributes<HTMLAnalogClockElement>;
+            "clock-hand": LocalJSX.ClockHand & JSXBase.HTMLAttributes<HTMLClockHandElement>;
+            "first-component": LocalJSX.FirstComponent & JSXBase.HTMLAttributes<HTMLFirstComponentElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
